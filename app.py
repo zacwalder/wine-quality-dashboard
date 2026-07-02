@@ -77,7 +77,7 @@ def load_artifacts():
 @st.cache_data
 def load_wine_data():
     """Load the wine dataset."""
-    return pd.read_csv('data/wine_data.csv')
+    return pd.read_csv('wine_data.csv')
 
 
 try:
