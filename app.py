@@ -65,11 +65,13 @@ st.markdown("""
 @st.cache_resource
 def load_artifacts():
     """Load all trained models and preprocessing artifacts."""
-    regressor = joblib.load('models/best_xgb_regressor.pkl')
-    classifier = joblib.load('models/best_xgb_classifier.pkl')
-    scaler = joblib.load('models/scaler.pkl')
-    label_encoder = joblib.load('models/label_encoder.pkl')
-    feature_names = joblib.load('models/feature_names.pkl')
+   
+        regressor = joblib.load('best_xgb_regressor.pkl')
+        classifier = joblib.load('best_xgb_classifier.pkl')
+        scaler = joblib.load('scaler.pkl')
+        label_encoder = joblib.load('label_encoder.pkl')
+        feature_names = joblib.load('feature_names.pkl')
+
     return regressor, classifier, scaler, label_encoder, feature_names
 
 @st.cache_data
