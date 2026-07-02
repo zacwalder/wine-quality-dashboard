@@ -128,7 +128,6 @@ st.sidebar.markdown("### 👨‍🎓 About")
 st.sidebar.info(
     "**MSc Business Analytics — AUEB**\n\n"
     "Course: Machine Learning and Content Analytics\n\n"
-    "Built with ❤️ using Streamlit + XGBoost + SHAP"
 )
 
 # ================================
