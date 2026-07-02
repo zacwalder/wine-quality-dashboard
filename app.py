@@ -13,6 +13,8 @@ import matplotlib.pyplot as plt
 import shap
 import plotly.express as px
 import plotly.graph_objects as go
+import os
+import traceback
 
 # ================================
 # PAGE CONFIG
@@ -75,13 +77,32 @@ def load_wine_data():
     """Load the wine dataset."""
     return pd.read_csv('data/wine_data.csv')
 
+
 try:
     regressor, classifier, scaler, label_encoder, feature_names = load_artifacts()
     wine_df = load_wine_data()
     models_loaded = True
 except Exception as e:
-    st.error(f"❌ Error loading models: {e}")
-    models_loaded = False
+    st.error(f"❌ Error loading files")
+    st.error(f"**Error type:** {type(e).__name__}")
+    st.error(f"**Error message:** {str(e)}")
+    
+    # Show what files actually exist in the repo
+    st.markdown("### 📁 Files found in this deployment:")
+    for folder in ['.', 'models', 'data']:
+        if os.path.exists(folder):
+            files = os.listdir(folder)
+            st.markdown(f"**{folder}/**")
+            for f in files:
+                st.code(f"{folder}/{f}")
+        else:
+            st.warning(f"⚠️ Folder `{folder}/` does not exist")
+    
+    st.markdown("### 🐛 Full traceback:")
+    st.code(traceback.format_exc())
+    
+    st.stop()  # ← This prevents the rest of the app from running
+
 
 # ================================
 # HEADER
