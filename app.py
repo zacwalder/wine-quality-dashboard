@@ -433,7 +433,7 @@ elif page == "ℹ️ About":
 st.markdown("---")
 st.markdown(
     "<p style='text-align:center; color:#888;'>"
-    "🍷 Made with Streamlit • MSc Business Analytics @ AUEB • 2026"
+    "🍷 Zacharias Gouolnter Michalas • MSc Business Analytics , AUEB 2026"
     "</p>",
     unsafe_allow_html=True
 )
